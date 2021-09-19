@@ -1,0 +1,47 @@
+<div *ngIf=searchResult class="container p-3">
+  <div *ngIf="!resultFound">
+    Nothing found for: {{searchResult.name.toUpperCase()[0] +searchResult.name.slice(1).toLowerCase()}}
+  </div>
+  <div *ngIf="searchResult && resultFound">
+    <div class=my-4>
+      <h2 class="display-5">{{searchResult.name.toUpperCase()[0] +searchResult.name.slice(1).toLowerCase()}}</h2>
+      <p>
+        The name {{searchResult.name.toUpperCase()[0] +searchResult.name.slice(1).toLowerCase()}}
+        is most common in {{searchResult.countries[0].country_name? searchResult.countries[0].country_name:
+        searchResult.countries[0].country_id }}.
+        {{(searchResult.gender.probability*100).toFixed()}}% of people named {{searchResult.name.toUpperCase()[0]
+        +searchResult.name.slice(1).toLowerCase()}}
+        are {{searchResult.gender.gender}}.
+        The average age for people named {{searchResult.name.toUpperCase()[0]
+        +searchResult.name.slice(1).toLowerCase()}}
+        is {{searchResult.age}}.
+      <p>
+    </div>
+    <div class="my-3">
+      <h5>Nationality</h5>
+      <div class=row>
+        <div class="col" *ngFor="let resultCountry of searchResult.countries">
+          <div>
+            <span *ngIf=resultCountry.flag [ngClass]='resultCountry.flag.toLowerCase()'></span>
+            {{resultCountry.country_name? resultCountry.country_name: resultCountry.country_id }}
+            <span>
+              {{(resultCountry.probability*100).toFixed()}}%
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="my-3">
+      <h5>Gender</h5>
+      <!-- <i class="bi bi-gender-female"> -->
+      <span>
+        {{(searchResult.gender.probability*100).toFixed()}}%
+        {{searchResult.gender.gender}}
+      </span>
+    </div>
+    <div class="my-3">
+      <h5>Age</h5>
+      <p>{{searchResult.age}}</p>
+    </div>
+  </div>

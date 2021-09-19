@@ -1,0 +1,7 @@
+<header class="input-group px-4">
+  <input [(ngModel)]='currentSearch' type="text" class="form-control" placeholder="Type Name">
+  <div class="input-group-append">
+    <button (click)="handleClick()" class="btn btn-outline-secondary">Search</button>
+  </div>
+</header>
+<small *ngIf='invalidSearch' style="color: red"> Name is required</small>

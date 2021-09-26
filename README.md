@@ -2,7 +2,7 @@
 
 App allows to search for person's first name and shows prediction about the person's nationality, gender and age. The App exploits the following APIs:
 - [Nationalize API](https://nationalize.io/)
-- [Genderize API]()
+- [Genderize API](https://genderize.io/)
 - [Agify API](https://agify.io/)
 
 See on GH Pages [GH Pages](https://vasfe.github.io/name-search/)
